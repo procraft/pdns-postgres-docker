@@ -1,0 +1,23 @@
+version: '2'
+services:
+  pdns:
+    image: procraft/pdns-postgres
+    links:
+      - db:postgres
+    volumes:
+      - ./pdns.conf:/etc/pdns/pdns.conf:ro
+    ports:
+      - "53:53"
+      - "53:53/udp"
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: procraft/pdns-postgres-db
+    # volumes:
+    #   - ${DB_DATA_DIR}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: very_strong_password
+      PDNS_DB_PASSWORD: changeme
+    restart: always

@@ -19,9 +19,17 @@ Minimalistic Alpine-based PowerDNS image with PostgreSQL backend
 
 ## Usage
 
+Basic:
+
 ```shell
 docker run --name pdns \
   --link postgres \
   -p 53:53 -p 53:53/udp \
   procraft/pdns-postgres
+```
+
+With ``docker-compose`` and companion db server container (see example [docker-compose.yml](docker-compose.yml)):
+
+```shell
+docker-compose up -d
 ```
