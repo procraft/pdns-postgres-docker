@@ -14,6 +14,9 @@ Minimalistic Alpine-based PowerDNS image with PostgreSQL backend
 * PostgreSQL backend only
 * Guardian process enabled with graceful shutdown
 * Convenient configuration via mounting ``/etc/pdns/conf.d`` dir, ``/etc/pdns/pdns.conf`` file or via command-line arguments
+* Default configuration is adopted to docker environment:
+  * API port is changed from 8081 to 80 and exposed
+  * Connections to the API webserver are allowed from local docker networks (but webserver itself is not enabled by default)
 * Neither PostgreSQL server itself nor DB initialization are not included, this image is aimed to just run pdns server inside more complex setup using ``docker-compose`` or something else
 
 
