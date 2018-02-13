@@ -14,6 +14,6 @@ RUN echo "http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositor
 ADD pdns.conf /etc/pdns/
 ADD entrypoint.sh /
 
-EXPOSE 53/tcp 53/udp
+EXPOSE 53/tcp 53/udp 8081/tcp
 
 ENTRYPOINT [ "/entrypoint.sh" ]
